@@ -1,14 +1,14 @@
-﻿#include <stdio.h>
-#include <string.h>		//문자열 함수 들어있음
+﻿#include <iostream>
+#include <string>		//std:string 클래스
 
 int main() {
-	char str1[30] = "";
-	char str2[30] = "Jiwoo";
+	std::string str1;
+	std::string str2 = "Jiwoo";
 	
 	//str1(목적지)에 str2 내용을 넣겠다
-	strcpy(str1, str2);
+	str1 = str2;
 
-	printf("%s \n", str1);
+	std::cout << str1 << std::endl;
 
 	return 0;
 }
