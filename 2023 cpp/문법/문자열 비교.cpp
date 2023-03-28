@@ -9,22 +9,21 @@
 using namespace std;
 
 int main() {
-	char str1[50] = "Hello";
-	char str2[50] = "World";
+	string str1 = "Hello";
+	string str2 = "World";
 
-	int result = strcmp(str1, str2);
 	 
 	// 문자열 비교 (인자의 순서와 반환값이 헷갈림)
-	if (result == 0) {
-		printf("str1 == str2");
+	if (str1 == str2) {
+		cout << "str1 == str2";
 	}
-	else if (result == -1) {
-		printf("str1 < str2");
+	//str1ㅣ이 str2보다 사전에 늦게 나오는 경우
+	else if (str1 < str2) {
+		cout << "str1 < str2";
 	}
-	else if(result == 1) {
-		printf("str1 > str2");
+	else if(str1 == str2) {
+		cout <<"str1 > str2";
 	}
-
 
 	return 0;
 }
