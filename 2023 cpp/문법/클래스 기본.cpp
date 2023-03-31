@@ -17,22 +17,28 @@ public:
 	string tel;
 	string major;
 	string adress;
+
+	//class는 멤버함수를 가질 수 있다.
+	void print(void) {
+		cout << "학번 : " << number << endl;
+		cout << "이름 : " << name << endl;
+		cout << "전화번호 : " << tel << endl;
+		cout << "학과 : " << major << endl;
+		cout << "주소 : " << adress << endl;
+	}
 };
 
 int main() {
 	//자료형 : Student (class 생략가능)
-	class Student 학생정보;
-	학생정보.number = 2202;
-	학생정보.name = "강효림";
-	학생정보.tel = "010-1234-5678";
-	학생정보.major = "뉴미디어소프트웨어과";
-	학생정보.adress = "서울 강서구";
-	
-	cout << "학번 : " << 학생정보.number << endl;
-	cout << "이름 : " << 학생정보.name << endl;
-	cout << "전화번호 : " << 학생정보.tel << endl;
-	cout << "학과 : " << 학생정보.major << endl;
-	cout << "주소 : " << 학생정보.adress << endl;
+	class Student stu1;
+	stu1.number = 2202;
+	stu1.name = "강효림";
+	stu1.tel = "010-1234-5678";
+	stu1.major = "뉴미디어소프트웨어과";
+	stu1.adress = "서울 강서구";
+
+	stu1.print();
+
 
 	return 0;
 }
