@@ -24,6 +24,14 @@ public:
 		adress = "서울 강서구";
 	}
 
+	Student(int _number, string _name, string _tel, string _major, string _adress) {
+		number = _number;
+		name = _name;
+		tel = _tel;
+		major = _major;
+		adress = _adress;
+	}
+
 	//class는 멤버함수를 가질 수 있다.
 	void print(void) {
 		cout << "학번 : " << number << endl;
@@ -42,11 +50,11 @@ private:
 };
 
 int main() {
-	//자료형 : Student (class 생략가능)
-	class Student stu1;
-
-	stu1.print();
-
+	//매개변수가 없는 생성자
+	Student stu1 = Student();
+	//stu1.print();
+	Student stu2 = Student(2202, "강효림", "010-0000-1111", "뉴미디어소프트웨어", "서울");
+	stu2.print();
 
 	return 0;
 }
