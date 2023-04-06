@@ -4,11 +4,6 @@
 
 using namespace std;
 
-struct Person {
-	int height;
-	int weight;
-
-};
 
 //여러 data들을 하나의 의미있는 구조체로 묶어서 관리
 //구조체 클래스는 일반적으로 단어의 첫글자를 대문자로 한다
@@ -30,12 +25,14 @@ public:
 		adress = "서울 강서구";
 	}
 
-	Student(int _number, string _name, string _tel, string _major, string _adress) {
-		number = _number;
-		name = _name;
-		tel = _tel;
-		major = _major;
-		adress = _adress;
+	Student(int number, string name, string tel, string major, string adress) {
+		//this : 객체 자기 자신을 가리키는 포인터(주소값)
+		//멤버변수와 매개변수가 이름이 같아도 구별가능
+		this->number = number;
+		this->name = name;
+		this->tel = tel;
+		this->major = major;
+		this->adress = adress;
 	}
 
 	//class는 멤버함수를 가질 수 있다.
@@ -61,17 +58,9 @@ int main() {
 	//stu1.print();
 
 	Student stu2 = Student(2202, "강효림", "010-0000-1111", "뉴미디어소프트웨어", "서울");
-	//stu2.print();
+	stu2.print();
 
-	struct Person p;
-	p.height = 187;
-	p.weight = 70;
 
-	struct Person* ptr = &p;
-
-	//둘 다 같은 결과
-	cout << "키 : " << ptr->height << endl;
-	cout << "몸무게 : " << (*ptr).weight << endl;
 
 	return 0;
 }
