@@ -25,14 +25,10 @@ public:
 		adress = "서울 강서구";
 	}
 
-	Student(int number, string name, string tel, string major, string adress) {
-		//this : 객체 자기 자신을 가리키는 포인터(주소값)
-		//멤버변수와 매개변수가 이름이 같아도 구별가능
-		this->number = number;
-		this->name = name;
-		this->tel = tel;
-		this->major = major;
-		this->adress = adress;
+	Student(int _number, string _name, string _tel, string _major, string _adress) 
+		: number(_number), name(_name), tel(_tel), major(_major), adress(_adress)
+	{
+
 	}
 
 	//class는 멤버함수를 가질 수 있다.
