@@ -26,6 +26,7 @@ public:
 	}
 
 	Student(int _number, string _name, string _tel, string _major, string _adress) 
+		//멤버변수 초기화. const/참조형 멤버변수 사용가능
 		: number(_number), name(_name), tel(_tel), major(_major), adress(_adress)
 	{
 
@@ -53,10 +54,13 @@ int main() {
 	Student stu1 = Student();
 	//stu1.print();
 
-	Student stu2 = Student(2202, "강효림", "010-0000-1111", "뉴미디어소프트웨어", "서울");
-	stu2.print();
+	//정적할당
+	//Student stu2 = Student(2202, "강효림", "010-0000-1111", "뉴미디어소프트웨어", "서울");
+	//stu2.print();
 
-
+	//동적할당된 공간은 포인터로 접근한다.
+	Student* stu3 = new Student(22, "율곡", "010-0000-2222", "유교", "한성");
+	stu3->print();
 
 	return 0;
 }
