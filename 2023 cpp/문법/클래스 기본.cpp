@@ -18,13 +18,7 @@ public:
 	//생성자(constructor) : 객체를 생성할 때 호출되는 함수
 	//생성자는 반환형을 쓰지 않는다
 	//생성자를 정의하지 않으면 dafault로 매개변수가 없는 생성자가 정의된다.
-	Student() {
-		number = 2202;
-		name = "강효림";
-		tel = "010-1234-5678";
-		major = "뉴미디어소프트웨어과";
-		adress = "서울 강서구";
-	}
+	Student() {}
 
 	Student(int _number, string _name, string _tel, string _major, string _adress) 
 		//멤버변수 초기화. const/참조형 멤버변수 사용가능
@@ -41,6 +35,25 @@ public:
 		cout << "학과 : " << major << endl;
 		cout << "주소 : " << adress << endl;
 	}
+
+	void set_number(int _number) {
+		number = _number;
+	}
+	void set_name(string _name) {
+		name = _name;
+	}
+	void set_tel(string _tel) {
+		tel = _tel;
+	}
+	void set_major(string _major) {
+		major = _major;
+	}
+	void set_adress(string _adress) {
+		adress = _adress;
+	}
+
+
+
 private:
 	int number;
 	string name;
@@ -59,10 +72,10 @@ int main() {
 	//Student stu2 = Student(2202, "강효림", "010-0000-1111", "뉴미디어소프트웨어", "서울");
 	//stu2.print();
 
-	Student stu3[2];
+	/*Student stu3[2];
 	for (int i = 0; i < 2; i++) {
 		stu3[i].print();
-	}
+	}*/
 
 	////동적할당 :  실행시간(run time)에 메모리크기가 결정됨(메모리 heap영역)
 	////동적할당된 공간은 포인터로 접근한다.
@@ -73,6 +86,19 @@ int main() {
 	//delete stu3;
 
 	Student* stu4 = new Student[2];
+	stu4[0].set_number(1111);
+	stu4[0].set_name("차은우");
+	stu4[0].set_adress("우리집");
+	stu4[0].set_major("소프트웨어");
+	stu4[0].set_tel("010-3344-4556");
+
+	stu4[1].set_number(1112);
+	stu4[1].set_name("선미");
+	stu4[1].set_adress("서울");
+	stu4[1].set_major("소프트웨어");
+	stu4[1].set_tel("010-3344-4567");
+
+
 	for (int i = 0; i < 2; i++) {
 		stu4[i].print(); //배열의 요소에 해당하는 객체는 멤버를 .으로 접근
 	}
