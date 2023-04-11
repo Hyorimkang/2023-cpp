@@ -54,10 +54,11 @@ int main() {
 	Student stu1 = Student();
 	//stu1.print();
 
-	//정적할당
+	//정적할당 : 컴파일 시간에 메모리 크기가 결정됨
 	//Student stu2 = Student(2202, "강효림", "010-0000-1111", "뉴미디어소프트웨어", "서울");
 	//stu2.print();
 
+	//동적할당 :  실행시간(run time)에 메모리크기가 결정됨(메모리 heap영역)
 	//동적할당된 공간은 포인터로 접근한다.
 	Student* stu3 = new Student(22, "율곡", "010-0000-2222", "유교", "한성");
 	stu3->print();
