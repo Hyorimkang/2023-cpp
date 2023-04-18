@@ -9,16 +9,25 @@ class Employee {
 
 public:
 	Employee() {
-		name_ = "강효림";
-		id_ = 1111;
-		age_ = 18;
-		salary_ = 1000;
 	}
 
 	Employee(string name, int id, int age, double salary)
 		: name_(name), id_(id), age_(age), salary_(salary)
 	{
 		
+	}
+
+	void set_name(string name) {
+		name_ = name;
+	}
+	void set_id(int id) {
+		id_ = id;
+	}
+	void set_age(int age) {
+		age_ = age;
+	}
+	void set_salary(int salary) {
+		salary_ = salary;
 	}
 
 	void PrintInfo() {
@@ -39,12 +48,17 @@ private:
 
 int main() {
 
-	Employee* emp1 = new Employee("강효림", 1111, 18, 1000);
+	Employee* emp1 = new Employee("강효림", 1111, 18, 10.15);
 	emp1->PrintInfo();
 
 	delete emp1;
 
 	Employee* emp2 = new Employee[2];
+	emp2->set_name("강효림");
+	emp2->set_id(1111);
+	emp2->set_age(18);
+	emp2->set_salary(10.15);
+
 	for (int i = 0; i < 1; i++) {
 		emp2[i].PrintInfo();
 	}
