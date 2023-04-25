@@ -11,12 +11,21 @@ public :
 		strcpy(c_str_, str);
 		size_ = l;
 	}
+
+	//소멸자 (destructor)
+	~MString() {
+		//소멸자로 생성자에서 동적할당한 메모리 해제
+		//소멸자의 매개변수는 없다.
+		delete[]  c_str_;
+	}
+
 	unsigned int size(void) {
 		return size_;
 	}
 	char* c_str(void) {
 		return c_str_; //_(언더 스코어) 멤버변수라는 뜻
 	}
+
 private:
 	unsigned int size_; //문자열의 길이
 	char* c_str_; //문자열의 시작주소
