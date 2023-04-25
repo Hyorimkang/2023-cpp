@@ -10,6 +10,7 @@ public :
 		c_str_ = new char[l+1];  //'\0'(널문자)가 들어갈 공간 +1
 		strcpy(c_str_, str);
 		size_ = l;
+		cout << "MString 생성자 호출 완료" << endl;
 	}
 
 	//소멸자 (destructor)
@@ -17,6 +18,7 @@ public :
 		//소멸자로 생성자에서 동적할당한 메모리 해제
 		//소멸자의 매개변수는 없다.
 		delete[]  c_str_;
+		cout << "MString 소멸자 호출 완료" << endl;
 	}
 
 	unsigned int size(void) {
