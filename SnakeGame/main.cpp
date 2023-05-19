@@ -3,6 +3,11 @@ using namespace sf;
 
 int main() {
 	RenderWindow window(VideoMode(630, 480), "SnakeGame"); //창만들기
+
+	RectangleShape snake;
+	snake.setFillColor(Color::White);
+	snake.setPosition(100, 300);
+	snake.setSize(Vector2f(50,50));
 	
 	while (window.isOpen()) {
 		Event e;
@@ -13,6 +18,10 @@ int main() {
 				window.close();
 		}
 		window.clear();
+
+		window.draw(snake);
+
+
 		window.display();
 	}
 
