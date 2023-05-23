@@ -3,6 +3,9 @@ using namespace sf;
 
 int main() {
 	RenderWindow window(VideoMode(630, 480), "SnakeGame"); //창만들기
+	//1초 동안 처리하는 횟수를 60으로 제한
+	//Frame Per Second를 60으로 조절
+	window.setFramerateLimit(60);
 
 	RectangleShape snake;
 	snake.setFillColor(Color::White);
@@ -19,13 +22,13 @@ int main() {
 		}
 
 		if (Keyboard::isKeyPressed(Keyboard::Right))
-			snake.move(1, 0);
+			snake.move(5, 0);
 		if (Keyboard::isKeyPressed(Keyboard::Left))
-			snake.move(-1, 0);
+			snake.move(-5, 0);
 		if (Keyboard::isKeyPressed(Keyboard::Up))
-			snake.move(0, -1);
+			snake.move(0, -5);
 		if (Keyboard::isKeyPressed(Keyboard::Down))
-			snake.move(0, 1);
+			snake.move(0, 5);
 
 		window.clear();
 
