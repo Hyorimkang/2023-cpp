@@ -1,7 +1,11 @@
 ﻿#include <SFML/Graphics.hpp>
+#include <time.h> //time()
+#include <stdlib.h> //srand(), rand()
+
 using namespace sf;
 
 int main() {
+	srand(time(NULL));
 	RenderWindow window(VideoMode(630, 480), "SnakeGame"); //창만들기
 	//1초 동안 처리하는 횟수를 60으로 제한
 	//Frame Per Second를 60으로 조절
@@ -14,7 +18,8 @@ int main() {
 
 	RectangleShape apple;
 	apple.setFillColor(Color::Red);
-	apple.setPosition(200,400);
+	//640-50 인 이유는 사과가 화면 밖에 벗어나지 못하게 하기 위함
+	apple.setPosition(rand()%(640-50), rand()%(480-50));
 	apple.setSize(Vector2f(50, 50));
 
 	
