@@ -20,7 +20,7 @@ int main() {
 	RenderWindow window(VideoMode(WIDTH, HEIGHT), "SnakeGame"); //창만들기
 	//1초 동안 처리하는 횟수를 60으로 제한
 	//Frame Per Second를 60으로 조절
-	window.setFramerateLimit(16);
+	window.setFramerateLimit(15);
 
 	RectangleShape snake;
 	int snake_x = 1, snake_y = 2;	//뱀의 그리드 좌표
@@ -77,7 +77,7 @@ int main() {
 		snake.setPosition(snake_x * BLOCK_SIZE, snake_y * BLOCK_SIZE);
 
 		//뱀이 사과를 먹었을 때, 
-		if (snake.getGlobalBounds().intersects(apple.getGlobalBounds())) {
+		if (snake_x == apple_x && snake_y == apple_y) {
 			apple_x = rand() % G_WIDTH, apple_y = rand() % G_HEIGHT;
 			apple.setPosition(apple_x * BLOCK_SIZE, apple_y * BLOCK_SIZE);
 		}
