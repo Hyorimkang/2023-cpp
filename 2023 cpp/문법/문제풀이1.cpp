@@ -4,16 +4,16 @@ class IntArray {
 public:
 	//일반생성자
 	IntArray(int* arr, int size) {
-		arr_ = new int[size];
-		size_ = size;
-		for (int i = 0; i < size_; i++) {
-			arr_[i] = arr[i];
-		}
+		
 	}
-	//얕은 복사 생성자
+	//깊은 복사 생성자
 	IntArray(const IntArray& rhs)
-		:size_(rhs.size_), arr_(rhs.arr_)
 	{
+		size_ = rhs.size_;
+		arr_ = new int[size_];
+		for (int i = 0; i < size_; i++) {
+			arr_[i] = rhs.arr_[i];
+		}
 	}
 private:
 	int* arr_;
