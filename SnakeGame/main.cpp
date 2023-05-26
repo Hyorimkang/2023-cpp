@@ -9,6 +9,14 @@
 
 using namespace sf;
 
+class Snake {
+private:
+	int dir_;
+	int x_;
+	int y_;
+	RectangleShape sprite_;
+};
+
 int main() {
 	const int WIDTH = 1000;						//픽셀 너비
 	const int HEIGHT = 800;						//픽셀 높이
