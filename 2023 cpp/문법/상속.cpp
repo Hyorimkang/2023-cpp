@@ -10,13 +10,15 @@ public:
 	~Animal() {
 		cout << "동물 소멸자" << endl;
 	}
-	void Bark(void) {
+
+	//동적바인딩
+	virtual void Bark(void) {
 		cout << "짖는다" << endl;
 	}
-	void Eat(void) {
+	virtual void Eat(void) {
 		cout << "먹는다" << endl;
 	}
-	void Hunt(void) {
+	virtual void Hunt(void) {
 		cout << "사냥한다" << endl;
 	}
 private:
@@ -50,7 +52,7 @@ int main() {
 
 
 	animal = new Crane(3, "지우", 108);  //부모의 멤버변수를 사용
-	animal->Bark();    //동물짖는다  (정적바인딩으로 인해 부모의 멤버함수를 호출)
+	animal->Bark();    //두루두루
 
 	delete animal;
 	return 0;
