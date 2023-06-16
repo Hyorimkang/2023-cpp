@@ -13,16 +13,11 @@ public:
 		cout << "동물 소멸자" << endl;
 	}
 
-	//동적바인딩
-	virtual void Bark(void) {
-		cout << "짖는다" << endl;
-	}
-	virtual void Eat(void) {
-		cout << "먹는다" << endl;
-	}
-	virtual void Hunt(void) {
-		cout << "사냥한다" << endl;
-	}
+	//동적바인딩(가상함수)
+	//동물은 추상적인 존재이므로 함수의 구체적인 구현(정의)는 자식클래스에서 진행 (순수 가상함수)
+	virtual void Bark(void) = 0;
+	virtual void Eat(void) = 0;
+	virtual void Hunt(void) = 0;
 private:
 	int age_;
 	string name_;
@@ -44,11 +39,16 @@ public:
 	void Bark() override{
 		cout << "두루두루" << endl;
 	}
+	//순수 가상함수(추상메소드)는 반드시 자식에서 구현해야함
+	void Eat() override{ }
+	void Hunt() override { }
 private:
 	int leg_length_;
 };
 
 int main() {
+	//추상클래스(하나라도 추상메소드가 존재하는 클래스)는 객체(인스턴스)를 만들 수 없다.
+	//Animal* animal = new Animal(1, "1");
 
 	Animal* animal = new Crane(3, "지우", 108);  //부모의 멤버변수를 사용
 	animal->Bark();    //두루두루
