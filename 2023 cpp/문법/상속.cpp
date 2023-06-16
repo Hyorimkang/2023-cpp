@@ -7,7 +7,9 @@ public:
 	Animal(int age, string name):age_(age), name_(name) {
 		cout << "동물 생성자" << endl;
 	}
-	~Animal() {
+
+	//소멸자에는 무조건 virtual을 넣자(메모리 누수 방지)
+	virtual ~Animal() {  
 		cout << "동물 소멸자" << endl;
 	}
 
