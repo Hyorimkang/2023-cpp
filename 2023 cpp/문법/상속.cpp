@@ -38,7 +38,8 @@ public:
 		cout << "두루미 소멸자" << endl;
 	}
 
-	void Bark() {
+	//오타 같은 실수를 방지하기 위해서 override키워드 사용(java의 @override와 같음) 
+	void Bark() override{
 		cout << "두루두루" << endl;
 	}
 private:
@@ -46,12 +47,8 @@ private:
 };
 
 int main() {
-	Animal* animal = new Animal(18, "동물이");
-	animal->Bark();
-	delete animal;  //동물짖는다
 
-
-	animal = new Crane(3, "지우", 108);  //부모의 멤버변수를 사용
+	Animal* animal = new Crane(3, "지우", 108);  //부모의 멤버변수를 사용
 	animal->Bark();    //두루두루
 
 	delete animal;
