@@ -25,15 +25,19 @@ public:
 
 class Snake {
 public:
-	Snake(int dir, int length) : dir_(dir), length_(length) {}
+	Snake(int dir, int length, int score=0) : dir_(dir), length_(length), score_(score){}
 
 	int GetDir(void) { return dir_;}
 	int GetLength(void) { return length_; }
+	int GetScore() { return score_; }
 	Object* GetBody(void) { return body_; }
 
 	void SetDir(int dir) { dir_ = dir; }
 	void SetLength(int length) { length_ = length; }
+	void SetScore(int score) { score_ = score; }
+
 	void IncLength(void) { length_++; }
+	void IncScore(int val) { score_ += val; }
 
 	void InitBody()
 	{
@@ -79,6 +83,7 @@ public:
 private:
 	int dir_;
 	int length_;
+	int score_;
 	Object body_[BODY_MAX];
 };
 
@@ -131,7 +136,7 @@ int main() {
 		}
 
 		//update
-
+		printf("score : %d\n", snake.GetScore());
 		snake.UpdateBody();
 		snake.UpdateHead();
 
@@ -140,6 +145,9 @@ int main() {
 			//사과 위치전환
 			apple.x_ = rand() % G_WIDTH, apple.y_ = rand() % G_HEIGHT;
 			apple.sprite_.setPosition(apple.x_ * BLOCK_SIZE, apple.y_ * BLOCK_SIZE);
+
+			//점수 증가
+			snake.IncScore(5);
 
 			//뱀의 길이변화
 			if (snake.GetLength() < 20) {
