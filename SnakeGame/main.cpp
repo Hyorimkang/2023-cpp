@@ -101,6 +101,21 @@ int main() {
 	//Frame Per Second를 60으로 조절
 	window.setFramerateLimit(15);
 
+	//폰트 설정
+	Font font;
+	if (!font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf")) {
+		printf("폰트 불러오기 실패");
+		return -1;
+	}
+
+	Text t_info;
+	t_info.setFont(font);  //글씨폰트지정
+	t_info.setFillColor(Color::Magenta);  //글씨색
+	t_info.setCharacterSize(50);  //글씨크기
+	t_info.setPosition(0, 0);  //글씨위치
+	
+	char t_info_buf[100];
+
 	Snake snake  = Snake(DIR_DOWN, 1);
 	snake.InitBody();
 
@@ -136,7 +151,9 @@ int main() {
 		}
 
 		//update
-		printf("score : %d\n", snake.GetScore());
+		sprintf(t_info_buf, "score : %d\n", snake.GetScore()); //t_info_buf안에 뒤에 출력할 문장이 들어감
+		t_info.setString(t_info_buf);  //글씨가 계속 갱신되도록
+
 		snake.UpdateBody();
 		snake.UpdateHead();
 
@@ -162,7 +179,7 @@ int main() {
 			window.draw(snake.GetBody()[i].sprite_);
 		}
 		window.draw(apple.sprite_);  //draw늦게할수록 더 위에 있다. 
-
+		window.draw(t_info);
 		window.display();
 	}
 
