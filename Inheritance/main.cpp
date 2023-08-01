@@ -12,6 +12,23 @@ public :
 
 	}
 
+	//소멸자
+	~Entity() {};
+
+	void move(float x, float y) {
+		sprite_->move(x,y);
+	}
+
+	//getter
+	int get_life(void) { return life_; }
+	int get_speed(void) { return speed_; }
+	RectangleShape get_sprite(void) { return *sprite_; }
+
+	//setter
+	void set_life(int val) { life_ = val; }
+	void set_speed(int val) { speed_ = val; }
+	void set_sprite(RectangleShape* val) { sprite_ = val; }
+
 private:
 	int life_;	//목숨
 	int speed_;	//속도
@@ -20,11 +37,14 @@ private:
 
 int main() {
 	RenderWindow window(VideoMode(1000, 800), "Sangsok"); //창만들기
+	window.setFramerateLimit(60);	//부드럽게 움직이기
 
 	RectangleShape p;
 	p.setFillColor(Color::White);
 	p.setPosition(100, 300);
 	p.setSize(Vector2f(50, 50));
+
+	Entity* player = new Entity(3, 5, &p);
 
 	while (window.isOpen()) {
 		Event e;
@@ -35,18 +55,19 @@ int main() {
 				window.close();
 		}
 
+		int p_speed = player->get_speed();
 		if (Keyboard::isKeyPressed(Keyboard::Right))
-			p.move(1, 0);
+			player->move(p_speed, 0);
 		if (Keyboard::isKeyPressed(Keyboard::Left))
-			p.move(-1, 0);
+			player->move(-p_speed, 0);
 		if (Keyboard::isKeyPressed(Keyboard::Up))
-			p.move(0, -1);
+			player->move(0, -p_speed);
 		if (Keyboard::isKeyPressed(Keyboard::Down))
-			p.move(0, 1);
+			player->move(0, p_speed);
 
 		window.clear();
 
-		window.draw(p);
+		window.draw(player->get_sprite());
 
 		window.display();
 	}
