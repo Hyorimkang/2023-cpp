@@ -21,6 +21,10 @@ public :
 	void move(float x, float y) {
 		sprite_->move(x,y);
 	}
+	
+	void eat() {
+
+	}
 
 	//getter
 	int get_life(void) { return life_; }
@@ -36,6 +40,27 @@ private:
 	int life_;	//목숨
 	int speed_;	//속도
 	RectangleShape* sprite_;	
+};
+
+class Player : public Entity{
+public :
+	Player(int life, int speed, RectangleShape* sprite, int score)
+		: Entity(life, speed, sprite), score_(score)
+	{}
+
+private:
+	int score_;
+};
+
+class Enemy : public Entity{
+public :
+	Enemy(int life, int speed, RectangleShape* sprite, int life_time)
+		: Entity(life, speed, sprite), life_time_(life_time)
+	{}
+
+private:
+	int life_time_;
+
 };
 
 int main() {
