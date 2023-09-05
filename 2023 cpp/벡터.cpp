@@ -14,7 +14,7 @@ int main() {
 	//꽉찬 공간에 새로운 데이터를 넣어보자
 	arr.push_back(50);
 
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < arr.size(); i++) {
 		cout << arr[i] << " ";
 	}
 
