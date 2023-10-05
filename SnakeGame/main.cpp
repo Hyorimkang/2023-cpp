@@ -103,7 +103,8 @@ int main() {
 
 	//폰트 설정
 	Font font;
-	if (!font.loadFromFile("C:\\Windows\\Fonts\\arial.ttf")) {
+	//한글이 지원되는 폰트로 변경
+	if (!font.loadFromFile("C:\\Windows\\Fonts\\H2GSRB.ttf")) {
 		printf("폰트 불러오기 실패");
 		return -1;
 	}
@@ -114,7 +115,8 @@ int main() {
 	t_info.setCharacterSize(50);  //글씨크기
 	t_info.setPosition(0, 0);  //글씨위치
 	
-	char t_info_buf[100];
+	//유니코드를 호환하기 위한 자료형으로 변경
+	double t_info_buf[100];
 
 	Snake snake  = Snake(DIR_DOWN, 1);
 	snake.InitBody();
@@ -151,7 +153,7 @@ int main() {
 		}
 
 		//update
-		sprintf(t_info_buf, "score : %d\n", snake.GetScore()); //t_info_buf안에 뒤에 출력할 문장이 들어감
+		swsprintf(t_info_buf, L"점수 : % d\n", snake.GetScore()); //t_info_buf안에 뒤에 출력할 문장이 들어감
 		t_info.setString(t_info_buf);  //글씨가 계속 갱신되도록
 
 		snake.UpdateBody();
