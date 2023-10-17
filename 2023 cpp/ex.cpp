@@ -1,21 +1,19 @@
 #include <iostream>
 #include <map>
-#include <string.h>
+
 using namespace std;
 
 int main() {
 	map<string, string> fruit;
+	string word;
 
 	fruit["사과"] = "apple";
 	fruit["바나나"] = "banana";
-	fruit["복숭아"] = "peach";
+	fruit["포도"] = "grape";
 
-	cout << fruit["사과"] << endl;
-
-	map<string, int>::iterator iter;
+	map<string, string>::iterator iter;
 	for (iter = fruit.begin(); iter != fruit.end(); iter++) {
 		cout << iter->first << "는 영어로 " << iter->second << endl;
 	}
-
 	return 0;
 }

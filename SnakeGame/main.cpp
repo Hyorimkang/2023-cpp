@@ -6,6 +6,14 @@
 #define DIR_DOWN	1
 #define DIR_RIGHT	2
 #define DIR_LEFT	3
+
+enum DIR {
+	UP,
+	DOWN,
+	RIGHT,
+	LEFT,
+};
+
 #define BODY_MAX	20
 
 using namespace sf;
@@ -65,16 +73,16 @@ public:
 
 	//머리
 	void UpdateHead(void) {
-		if (GetDir() == DIR_UP && body_[0].y_ > 0) {
+		if (GetDir() == DIR::UP && body_[0].y_ > 0) {
 			body_[0].y_--;
 		}
-		else if (GetDir() == DIR_DOWN && body_[0].y_ < G_HEIGHT - 1) {
+		else if (GetDir() == DIR::DOWN && body_[0].y_ < G_HEIGHT - 1) {
 			body_[0].y_++;
 		}
-		else if (GetDir() == DIR_RIGHT && body_[0].x_ < G_WIDTH - 1) {
+		else if (GetDir() == DIR::RIGHT && body_[0].x_ < G_WIDTH - 1) {
 			body_[0].x_++;
 		}
-		else if (GetDir() == DIR_LEFT && body_[0].x_ > 0) {
+		else if (GetDir() == DIR::LEFT && body_[0].x_ > 0) {
 			body_[0].x_--;
 		}
 		body_[0].sprite_.setPosition(body_[0].x_ * BLOCK_SIZE, body_[0].y_ * BLOCK_SIZE);
@@ -140,21 +148,21 @@ int main() {
 
 		//방향키가 동시에 눌러지지 않도록 else처리
 		if (Keyboard::isKeyPressed(Keyboard::Right)) {
-			snake.SetDir(DIR_RIGHT);
+			snake.SetDir(DIR::RIGHT);
 		}	
 		else if (Keyboard::isKeyPressed(Keyboard::Left)) {
-			snake.SetDir(DIR_LEFT);
+			snake.SetDir(DIR::LEFT);
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::Up)) {
-			snake.SetDir(DIR_UP);
+			snake.SetDir(DIR::UP);
 		}
 		else if (Keyboard::isKeyPressed(Keyboard::Down)) {
-			snake.SetDir(DIR_DOWN);
+			snake.SetDir(DIR::DOWN);
 		}
 
 		//update
-		swsprintf(t_info_buf, L"점수 : % d\n", snake.GetScore()); //t_info_buf안에 뒤에 출력할 문장이 들어감
-		t_info.setString(t_info_buf);  //글씨가 계속 갱신되도록
+		//swsprintf(t_info_buf, L"점수 : % d\n", snake.GetScore()); //t_info_buf안에 뒤에 출력할 문장이 들어감
+		//t_info.setString(t_info_buf);  //글씨가 계속 갱신되도록
 
 		snake.UpdateBody();
 		snake.UpdateHead();
