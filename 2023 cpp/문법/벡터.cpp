@@ -16,7 +16,8 @@ int main() {
 
 	vector<int>::iterator iter;
 	//반복자 (iterator)를 활용하여 모든 원소를 출력
-	for (iter = arr.begin(); iter != arr.end(); iter++) { 
+	//복잡한 자료형을 auto로 간소화
+	for (auto iter = arr.begin(); iter != arr.end(); iter++) { 
 		cout << *iter << " ";
 	}
 
